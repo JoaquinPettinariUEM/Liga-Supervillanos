@@ -14,6 +14,7 @@ import { superevilsDataMock } from '../evilsDataMock';
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './supervillano.html',
+  styleUrl: './supervillano.css',
 })
 export class SupervillanoComponent implements OnDestroy {
   @Input() villano: Heroe = superevilsDataMock[0];
