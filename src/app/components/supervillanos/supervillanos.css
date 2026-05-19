@@ -1,0 +1,28 @@
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+th,
+td {
+  padding: 12px;
+  vertical-align: middle;
+  word-break: break-word;
+}
+
+th {
+  white-space: nowrap;
+}
+
+tr {
+  text-align: center;
+}
+
+section {
+  padding: 36px;
+}
+
+.title-wrapper {
+  text-align: center;
+  margin: 16px 0;
+}
