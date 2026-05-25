@@ -7,18 +7,52 @@
       <label>Remitente</label>
 
       <input type="text" class="form-control" formControlName="remitente" />
+
+      @if (formulario.get('remitente')?.touched &&
+      formulario.get('remitente')?.hasError('required')) {
+      <small class="text-danger">El remitente es obligatorio</small>
+      }
+
+      @if (formulario.get('remitente')?.touched &&
+      formulario.get('remitente')?.hasError('maxlength')) {
+      <small class="text-danger">Máximo 20 caracteres</small>
+      }
     </div>
 
     <div class="mb-3">
       <label>Edad</label>
 
       <input type="number" class="form-control" formControlName="edad" />
+
+      @if (formulario.get('edad')?.touched &&
+      formulario.get('edad')?.hasError('required')) {
+      <small class="text-danger">La edad es obligatoria</small>
+      }
+
+      @if (formulario.get('edad')?.touched && formulario.get('edad')?.hasError('max')) {
+      <small class="text-danger">La edad debe tener máximo 2 cifras</small>
+      }
     </div>
 
     <div class="mb-3">
       <label>Mensaje</label>
 
       <textarea class="form-control" formControlName="mensaje"></textarea>
+
+      @if (formulario.get('mensaje')?.touched &&
+      formulario.get('mensaje')?.hasError('required')) {
+      <small class="text-danger">El mensaje es obligatorio</small>
+      }
+
+      @if (formulario.get('mensaje')?.touched &&
+      formulario.get('mensaje')?.hasError('minlength')) {
+      <small class="text-danger">Mínimo 10 caracteres</small>
+      }
+
+      @if (formulario.get('mensaje')?.touched &&
+      formulario.get('mensaje')?.hasError('maxlength')) {
+      <small class="text-danger">Máximo 14 caracteres</small>
+      }
     </div>
 
     <button type="button" class="btn btn-primary" (click)="guardar()">
