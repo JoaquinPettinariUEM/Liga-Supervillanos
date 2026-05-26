@@ -1,0 +1,39 @@
+<section>
+
+  <div class="title-wrapper">
+    <h1>Lista negra de supervillanos</h1>
+
+    <p class="mt-3">{{ mensaje }}</p>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table mt-4">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col" class="descripcion">Descripción</th>
+          <th scope="col">Inteligencia</th>
+          <th scope="col">Fuerza</th>
+          <th scope="col">Velocidad</th>
+          <th scope="col">Durabilidad</th>
+          <th scope="col">Poder</th>
+          <th scope="col">Combate</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (villano of villanos; track villano.id) {
+        <tr app-supervillano [villano]="villano"
+          (deleteVillano)="eliminarVillano(villano.id)">
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <button class="btn" [class.btn-success]="!guerra" [class.btn-danger]="guerra"
+    (click)="toggleGuerra()">
+    {{ guerra ? 'Declarar la guerra' : 'Firmar la Paz' }}
+  </button>
+</section>
